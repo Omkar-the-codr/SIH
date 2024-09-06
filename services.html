@@ -16,39 +16,72 @@
       <div class="logo">
         <h1>DTC</h1>
       </div>
-      <div class="buttons">
+      <!-- <div class="buttons text-center mb-4" style=" display: flex; text-align: center;">
         <a href="index.html" class="link" data-aos="fade-up" data-aos-duration="1200">
-          <button>Home</button>
+          <button class="btn btn-primary">Home</button>
         </a>
         <a href="about.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
-          <button>About</button>
+          <button class="btn btn-primary">About</button>
         </a>
         <a href="services.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-          <button>Services</button>
+          <button class="btn btn-primary">Services</button>
         </a>
         <a href="bus-routes.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
-          <button>Bus Routes</button>
+          <button class="btn btn-primary">Bus Routes</button>
         </a>
         <a href="tracking.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-          <button>Tracking</button>
+          <button class="btn btn-primary">Tracking</button>
         </a>
         <a href="contact.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="500">
-          <button>Contact</button>
+          <button class="btn btn-primary">Contact</button> -->
         </a>
       </div>
     </nav>
   </header>
 
+
   <main>
     <section style="display: block; text-align: center;" class="services-section" data-aos="fade-up" data-aos-duration="1200">
+      
+      <!-- Buttons Centered -->
+      <div class="logo" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
+        </div>
+      <div class="buttons" style="text-align: center;">
+        <a href="index.html" class="link" data-aos="fade-up" data-aos-duration="1200">
+          <button class="btn btn-primary">Home</button>
+        </a>
+        <a href="about.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
+          <button class="btn btn-primary">About</button>
+        </a>
+        <a href="services.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+          <button class="btn btn-primary">Services</button>
+        </a>
+        <a href="bus-routes.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
+          <button class="btn btn-primary">Bus Routes</button>
+        </a>
+        <a href="tracking.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
+          <button class="btn btn-primary">Tracking</button>
+        </a>
+        <a href="contact.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="500">
+          <button class="btn btn-primary">Contact</button>
+        </a>
+      </div>
+      </div>
       <h1 style="color: white">Bus Driver Table</h1>
       <p style="color: white" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
         Manage bus driver information with ease.
       </p>
+
+      <!-- Add Row Button Centered -->
+      <div class="text-center mb-4">
+        <button id="add-row-btn" class="btn btn-success">Add Row</button>
+      </div>
+
+      <!-- Table Below the Buttons -->
       <div class="container">
         <table id="bus-driver-table" class="table table-striped table-bordered">
           <thead>
-            <tr>
+            <tr style="color: white;">
               <th>Serial Number</th>
               <th>Bus Driver Name</th>
               <th>Bus Route Number</th>
@@ -56,11 +89,10 @@
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody id="table-body">
+          <tbody style="color: white;" id="table-body">
             <!-- rows will be added dynamically here -->
           </tbody>
         </table>
-        <button id="add-row-btn" class="btn btn-success">Add Row</button>
       </div>
     </section>
   </main>
@@ -187,31 +219,26 @@
 
     // Function to delete a row
     function deleteRow(index) {
-      tableData.splice(index, 1);
-      renderTable(); // Re-render the table after deletion
+      tableData.splice(index, 1); // Remove the row at the specified index
+      renderTable(); // Re-render the table
     }
 
-    // Event listener to handle "Add Row" button click
+    // Event listeners
     addRowBtn.addEventListener('click', () => {
-      editingRowIndex = -1; // Reset the editing index to -1 for adding a new row
-      $('#row-modal').modal('show'); // Show the modal for adding a new row
+      editingRowIndex = -1; // Reset editing index for new row
+      $('#row-modal').modal('show');
     });
 
-    // Event listener to handle "Save" button click inside modal
     saveRowBtn.addEventListener('click', saveRow);
-
-    // Initial rendering of the table
-    renderTable();
   </script>
 
-  <!-- Initialize AOS -->
+  <!-- AOS and Bootstrap JS -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script>
     AOS.init();
   </script>
-
-  <!-- Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
