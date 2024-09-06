@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Password Protect</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="/frontend/style2.css" />
+  </head>
+  <body>
+    <div
+      class="login-card"
+      data-aos="fade-up"
+      data-aos-duration="1200"
+      data-aos-delay="800"
+    >
+      <h1 data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+        Password Protected Login
+      </h1>
+      <form
+        name="loginForm"
+        data-aos="fade-up"
+        data-aos-duration="1200"
+        data-aos-delay="400"
+      >
+        <input
+          type="text"
+          name="userid"
+          placeholder="Username"
+          id="userid"
+          required
+        />
+        <input
+          type="password"
+          name="pswrd"
+          placeholder="Password"
+          id="pswrd"
+          required
+        />
+        <input
+          type="button"
+          onclick="checkCredentials()"
+          name="login"
+          class="login login-submit"
+          value="Login"
+        />
+      </form>
+      <p data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600"></p>
+      <div
+        class="login-help"
+        data-aos="fade-up"
+        data-aos-duration="1200"
+        data-aos-delay="800"
+      >
+        <a href="register.html">Register</a> •
+        <a href="forgot-password.html">Forgot Password</a>
+      </div>
+    </div>
+
+    <!-- JavaScript for login validation -->
+    <script>
+      function checkCredentials() {
+        var username = document.getElementById("userid").value;
+        var password = document.getElementById("pswrd").value;
+
+        // Check if the entered username and password match 'admin'
+        if (username === "admin" && password === "admin") {
+          // Redirect to index2.html
+          window.location.href = "index2.html";
+        } else {
+          // Alert the user if the credentials are wrong
+          alert("Invalid Username or Password. Please try again.");
+        }
+      }
+    </script>
+
+    <!-- Initialize AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

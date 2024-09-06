@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bus Routes</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      /* background-color: #333; */
+      color: white;
+      padding: 10px 0;
+    }
+    /* nav {
+      display: flex;
+      justify-content: center;
+    } */
+    /* .buttons {
+      display: flex;
+      gap: 10px;
+    } */
+    /* .buttons button {
+      background-color: #555;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    .buttons button.active {
+      background-color: #007bff;
+    } */
+    main {
+      padding: 20px;
+    }
+    .route-container {
+      margin-bottom: 20px;
+    }
+    .route-container input,
+    .route-container select {
+      margin: 5px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .route-info {
+      margin-top: 20px;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .route-info h2 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <h1>DTC</h1>
+       </div>
+        <div class="buttons">
+          <a href="home.html" class="link" data-aos="fade-up" data-aos-duration="1200">
+            <button>Home</button>
+          </a>
+          <a href="about.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
+            <button>About</button>
+          </a>
+          <a href="services.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+            <button>Services</button>
+          </a>
+          <a href="bus-routes.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
+            <button>Bus Routes</button>
+          </a>
+          <a href="tracking.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
+            <button>Tracking</button>
+          </a>
+          <a href="contact.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="500">
+            <button>Contact</button>
+          </a>
+        </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="route-section" data-aos="fade-up" data-aos-duration="1200">
+      <h1 style="color: white;">Bus Routes</h1>
+      <div class="route-container">
+        <label style="color: white" for="start-stop">Start Stop:</label>
+        <input type="text" id="start-stop" placeholder="Enter start stop" />
+      </div>
+      <div style="color: white" class="route-container">
+        <label for="end-stop">End Stop:</label>
+        <input type="text" id="end-stop" placeholder="Enter end stop" />
+      </div>
+      <button onclick="findRoutes()">Find Routes</button>
+      <div class="route-info" id="route-info">
+        <h2>Available Routes</h2>
+        <p id="routes-list">Routes will be displayed here.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; [Year] Delhi Transport Corporation. All rights reserved.</p>
+  </footer>
+
+  <!-- Initialize AOS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function findRoutes() {
+      const startStop = document.getElementById('start-stop').value;
+      const endStop = document.getElementById('end-stop').value;
+      
+      // Dummy data for example purposes
+      const routes = [
+        { route: 'Route 101', details: 'Start: Stop A, End: Stop B' },
+        { route: 'Route 202', details: 'Start: Stop A, End: Stop B' },
+        // Add more routes as needed
+      ];
+
+      const routesList = routes
+        .filter(route => route.details.includes(`Start: ${startStop}`) && route.details.includes(`End: ${endStop}`))
+        .map(route => `<p>${route.route}: ${route.details}</p>`)
+        .join('');
+
+      document.getElementById('routes-list').innerHTML = routesList || '<p>No routes found.</p>';
+    }
+  </script>
+</body>
+</html>

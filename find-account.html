@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Find Password</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style2.css"> 
+  </head>
+  <body>
+    <div class="login-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="800">
+        <h1 data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">Forgot Password <small>- step 2</small></h1>
+        <p data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">Enter your name, e.g., FirstName LastName</p>
+        <form data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
+          <script type="text/javascript" src="scripts/forgot2.js"></script>
+          <input type="text" name="name" placeholder="Name">
+          <input type="button" onclick="account(form)" name="login" class="login login-submit" value="Submit">
+        </form>
+        <p data-aos="fade-up" data-aos-duration="1200" data-aos-delay="800"></p>
+        <div class="login-help" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="1000">
+          <a href="index2.html">Log-in</a> • <a href="register.html">Register</a>
+        </div>
+    </div>
+
+    <!-- Initialize AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+  <!-- <footer>
+    <center>
+      <div class="container">
+        <p>__________________________________</p>
+        <p>&copy; Michael Bateman. All rights reserved. <a href=mailto:info@michaelbateman.ca>Contact me</a>.</p>
+      </div>
+    </center>
+  </footer> -->
+</html>

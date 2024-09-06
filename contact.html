@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="style.css"> 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      /* background-color: #333; */
+      color: white;
+      padding: 10px 0;
+    }
+    /* nav {
+      display: flex;
+      justify-content: center;
+    } */
+    /* .buttons {
+      display: flex;
+      gap: 10px;
+    } */
+    /* .buttons button {
+      background-color: #555;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    } */
+    /* .buttons button.active {
+      background-color: #007bff;
+    } */
+    main {
+      padding: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #333;
+    }
+    .contact-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .contact-card {
+      background-color: #fff;
+      padding: 20px;
+      width: 30%;
+      margin: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .contact-card h3 {
+      margin-top: 0;
+      color: #007bff;
+    }
+    .contact-card p {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <h1 style="color: white">DTC</h1>
+      </div>
+        <div class="buttons">
+          <a href="index.html" class="link" data-aos="fade-up" data-aos-duration="1200">
+            <button>Home</button>
+          </a>
+          <a href="about.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
+            <button>About</button>
+          </a>
+          <a href="services.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+            <button>Services</button>
+          </a>
+          <a href="bus-routes.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
+            <button>Bus Routes</button>
+          </a>
+          <a href="tracking.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
+            <button>Tracking</button>
+          </a>
+          <a href="contact.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="500">
+            <button>Contact</button>
+          </a>
+        </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1 style="color: white">Contact Us</h1>
+    <section class="contact-section" data-aos="fade-up" data-aos-duration="1200">
+      <!-- Website Contacts -->
+      <div class="contact-card" data-aos="fade-up" data-aos-duration="1200">
+        <h3>Website Support</h3>
+        <p>Email: support@dtcwebsite.com</p>
+        <p>Phone: +91-1234567890</p>
+        <p>Technical Support: +91-9876543210</p>
+      </div>
+
+      <!-- Emergency Contacts -->
+      <div class="contact-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+        <h3>Emergency Contacts</h3>
+        <p>Ambulance: 102</p>
+        <p>Police: 100</p>
+        <p>Fire: 101</p>
+        <p>Women Helpline: 1091</p>
+      </div>
+
+      <!-- Government IDs -->
+      <div class="contact-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
+        <h3>Government Contact Information</h3>
+        <p>Ministry of Transport: transport@gov.in</p>
+        <p>Transport Helpline: +91-1800-112-211</p>
+        <p>Transport Department: +91-1234567890</p>
+        <p>Public Grievances: pgportal@gov.in</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; [Year] Delhi Transport Corporation. All rights reserved.</p>
+  </footer>
+
+  <!-- Initialize AOS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>

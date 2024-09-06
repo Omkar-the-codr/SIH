@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bus Routes</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      /* background-color: #333; */
+      color: white;
+      padding: 10px 0;
+    }
+    nav {
+      display: flex;
+      /* justify-content: center; */
+    }
+    /* .buttons {
+      display: flex;
+      gap: 10px;
+    } */
+    /* .buttons button {
+      background-color: #555;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    } */
+    /* .buttons button.active {
+      background-color: #007bff;
+    } */
+    main {
+      padding: 20px;
+    }
+    .filter-container {
+      margin-bottom: 20px;
+    }
+    .filter-container input,
+    .filter-container select {
+      margin: 5px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .bus-info {
+      margin-top: 20px;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .feature-btns {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .feature-btns button {
+      background-color: #555;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <h1>DTC</h1>
+      </div>
+        <div class="buttons">
+          <a href="index.html" class="link" data-aos="fade-up" data-aos-duration="1200">
+            <button>Home</button>
+          </a>
+          <a href="about.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
+            <button>About</button>
+          </a>
+          <a href="services.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+            <button>Services</button>
+          </a>
+          <a href="bus-routes.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
+            <button>Bus Routes</button>
+          </a>
+          <a href="tracking.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
+            <button>Tracking</button>
+          </a>
+          <a href="contact.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="500">
+            <button>Contact</button>
+          </a>
+        </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="bus-routes-section" data-aos="fade-up" data-aos-duration="1200">
+      <h1 style="color: white;">Bus Tracking</h1>
+      <!-- <div class="filter-container">
+        <input type="text" id="bus-number" placeholder="Enter Bus Number" />
+        <button onclick="searchBus()">Search</button>
+      </div> -->
+      <!-- <div class="filter-container">
+        <label for="route-filter">Filter by Route:</label>
+        <select id="route-filter">
+          <option value="">Select Route</option>
+          <option value="route1">Route 1</option>
+          <option value="route2">Route 2</option>
+          <option value="route3">Route 3</option>
+        </select>
+      </div>
+      <div class="filter-container">
+        <label for="time-filter">Filter by Time:</label>
+        <select id="time-filter">
+          <option value="">Select Time</option>
+          <option value="morning">Morning</option>
+          <option value="afternoon">Afternoon</option>
+          <option value="evening">Evening</option>
+        </select>
+      </div>
+      <div class="filter-container">
+        <label for="status-filter">Filter by Status:</label>
+        <select id="status-filter">
+          <option value="">Select Status</option>
+          <option value="on-time">On Time</option>
+          <option value="delayed">Delayed</option>
+          <option value="cancelled">Cancelled</option>
+        </select>
+      </div> -->
+      <div class="feature-btns">
+        <!-- <button id="feature-1-btn">Feature 1: Live Tracking</button> -->
+        <a href="live-tracking.html" class="link" data-aos="fade-up" data-aos-duration="1200"></a>
+            <button onclick()>Live-Tracking</button>
+          </a>
+        <button id="feature-2-btn">Feature 2: Route Planner</button>
+        <button id="feature-3-btn">Feature 3: Bus Schedule</button>
+        <button id="feature-4-btn">Feature 4: Fare Calculator</button>
+      </div>
+      <div class="bus-info">
+        <h2>Bus Information</h2>
+        <p>Bus number, route details, timings, and status will be displayed here.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; [Year] Delhi Transport Corporation. All rights reserved.</p>
+  </footer>
+
+  <!-- Initialize AOS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function searchBus() {
+      // Add your JavaScript code here to handle the search functionality
+      alert('Searching for bus...');
+    }
+    document.getElementById('live-tracking-btn').addEventListener('click', function() {
+  window.location.href = 'live-tracking.html';
+});
+
+    // Add event listeners to the feature buttons
+    // document.getElementById('feature-1-btn').addEventListener('click', function() {
+    //   // Add code to open Feature 1: Live Tracking
+    //   alert('Opening Feature 1: Live Tracking...');
+    // });
+
+    document.getElementById('feature-2-btn').addEventListener('click', function() {
+      // Add code to open Feature 2: Route Planner
+      alert('Opening Feature 2: Route Planner...');
+    });
+
+    document.getElementById('feature-3-btn').addEventListener('click', function() {
+      // Add code to open Feature 3: Bus Schedule
+      alert('Opening Feature 3: Bus Schedule...');
+    });
+
+    document.getElementById('feature-4-btn').addEventListener('click', function() {
+      // Add code to open Feature 4: Fare Calculator
+      alert('Opening Feature 4: Fare Calculator...');
+    });
+  </script>
+</body>
+</html>

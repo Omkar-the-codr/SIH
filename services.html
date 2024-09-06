@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Driver Table</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="style.css"> 
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <h1>DTC</h1>
+      </div>
+      <div class="buttons">
+        <a href="index.html" class="link" data-aos="fade-up" data-aos-duration="1200">
+          <button>Home</button>
+        </a>
+        <a href="about.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
+          <button>About</button>
+        </a>
+        <a href="services.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+          <button>Services</button>
+        </a>
+        <a href="bus-routes.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
+          <button>Bus Routes</button>
+        </a>
+        <a href="tracking.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
+          <button>Tracking</button>
+        </a>
+        <a href="contact.html" class="link" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="500">
+          <button>Contact</button>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section style="display: block; text-align: center;" class="services-section" data-aos="fade-up" data-aos-duration="1200">
+      <h1 style="color: white">Bus Driver Table</h1>
+      <p style="color: white" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+        Manage bus driver information with ease.
+      </p>
+      <div class="container">
+        <table id="bus-driver-table" class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Serial Number</th>
+              <th>Bus Driver Name</th>
+              <th>Bus Route Number</th>
+              <th>Bus Number</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- rows will be added dynamically here -->
+          </tbody>
+        </table>
+        <button id="add-row-btn" class="btn btn-success">Add Row</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p style="color: white">&copy; [Year] Delhi Transport Corporation. All rights reserved.</p>
+  </footer>
+
+  <!-- Modal for adding/updating rows -->
+  <div class="modal fade" id="row-modal" tabindex="-1" role="dialog" aria-labelledby="row-modal-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="row-modal-label">Add/Update Row</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="serial-number">Serial Number</label>
+              <input type="number" class="form-control" id="serial-number" required>
+            </div>
+            <div class="form-group">
+              <label for="bus-driver-name">Bus Driver Name</label>
+              <input type="text" class="form-control" id="bus-driver-name" required>
+            </div>
+            <div class="form-group">
+              <label for="bus-route-number">Bus Route Number</label>
+              <input type="number" class="form-control" id="bus-route-number" required>
+            </div>
+            <div class="form-group">
+              <label for="bus-number">Bus Number</label>
+              <input type="number" class="form-control" id="bus-number" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="save-row-btn">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript code to add, delete, and update rows -->
+  <script>
+    // Array to store table data
+    let tableData = [];
+
+    // DOM elements
+    const tableBody = document.getElementById('table-body');
+    const addRowBtn = document.getElementById('add-row-btn');
+    const saveRowBtn = document.getElementById('save-row-btn');
+
+    let editingRowIndex = -1; // Track whether we're adding a new row or editing an existing one
+
+    // Function to render table rows
+    function renderTable() {
+      tableBody.innerHTML = ''; // Clear the existing rows
+
+      tableData.forEach((row, index) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${row.serialNumber}</td>
+          <td>${row.driverName}</td>
+          <td>${row.routeNumber}</td>
+          <td>${row.busNumber}</td>
+          <td>
+            <button class="btn btn-sm btn-primary" onclick="editRow(${index})">Edit</button>
+            <button class="btn btn-sm btn-danger" onclick="deleteRow(${index})">Delete</button>
+          </td>
+        `;
+        tableBody.appendChild(tr);
+      });
+    }
+
+    // Function to add or update a row
+    function saveRow() {
+      const serialNumber = document.getElementById('serial-number').value;
+      const driverName = document.getElementById('bus-driver-name').value;
+      const routeNumber = document.getElementById('bus-route-number').value;
+      const busNumber = document.getElementById('bus-number').value;
+
+      const newRow = { serialNumber, driverName, routeNumber, busNumber };
+
+      if (editingRowIndex === -1) {
+        // Add new row
+        tableData.push(newRow);
+      } else {
+        // Update existing row
+        tableData[editingRowIndex] = newRow;
+        editingRowIndex = -1;
+      }
+
+      // Reset form
+      document.getElementById('serial-number').value = '';
+      document.getElementById('bus-driver-name').value = '';
+      document.getElementById('bus-route-number').value = '';
+      document.getElementById('bus-number').value = '';
+
+      // Hide modal after saving
+      $('#row-modal').modal('hide');
+
+      // Re-render the table
+      renderTable();
+    }
+
+    // Function to edit a row
+    function editRow(index) {
+      editingRowIndex = index;
+
+      const row = tableData[index];
+
+      document.getElementById('serial-number').value = row.serialNumber;
+      document.getElementById('bus-driver-name').value = row.driverName;
+      document.getElementById('bus-route-number').value = row.routeNumber;
+      document.getElementById('bus-number').value = row.busNumber;
+
+      // Show the modal
+      $('#row-modal').modal('show');
+    }
+
+    // Function to delete a row
+    function deleteRow(index) {
+      tableData.splice(index, 1);
+      renderTable(); // Re-render the table after deletion
+    }
+
+    // Event listener to handle "Add Row" button click
+    addRowBtn.addEventListener('click', () => {
+      editingRowIndex = -1; // Reset the editing index to -1 for adding a new row
+      $('#row-modal').modal('show'); // Show the modal for adding a new row
+    });
+
+    // Event listener to handle "Save" button click inside modal
+    saveRowBtn.addEventListener('click', saveRow);
+
+    // Initial rendering of the table
+    renderTable();
+  </script>
+
+  <!-- Initialize AOS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
